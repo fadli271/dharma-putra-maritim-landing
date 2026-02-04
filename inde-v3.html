@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DAPMA | Dharma Putra Maritim</title>
+  <meta name="description" content="DAPMA (Dharma Putra Maritim) menghadirkan layanan maritim B2B: ocean freight, port services, project cargo, dan koordinasi logistik end-to-end dengan visibilitas yang rapi." />
+  <meta property="og:title" content="DAPMA | Dharma Putra Maritim" />
+  <meta property="og:description" content="Layanan maritim B2B dengan koordinasi end-to-end, visibilitas operasi, dan eksekusi yang rapi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://example.com/new-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: {
+              900: "#0B1220",
+              800: "#111827",
+              700: "#1F2937",
+              600: "#374151",
+              500: "#6B7280"
+            },
+            navy: {
+              900: "#0A1B2E",
+              800: "#0F2640",
+              700: "#133354",
+              600: "#1A4570"
+            },
+            cyan: {
+              500: "#2AD3E3",
+              400: "#5DE0EC",
+              300: "#90EEF5"
+            },
+            steel: {
+              500: "#8CA3B8",
+              400: "#A7B9C9",
+              300: "#C4D0DB"
+            },
+            mist: {
+              50: "#F5F7FB",
+              100: "#E6ECF4",
+              200: "#D4DEE9"
+            }
+          },
+          fontFamily: {
+            sans: ["Manrope", "ui-sans-serif", "system-ui"],
+            display: ["Sora", "ui-sans-serif", "system-ui"]
+          },
+          boxShadow: {
+            glow: "0 25px 70px rgba(12, 23, 44, 0.35)",
+            soft: "0 12px 30px rgba(15, 23, 42, 0.12)"
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(180deg, #f7faff 0%, #ffffff 35%);
+      color: #0B1220;
+    }
+    .hero-overlay {
+      background: linear-gradient(120deg, rgba(6, 14, 26, 0.9) 0%, rgba(6, 14, 26, 0.65) 55%, rgba(6, 14, 26, 0.35) 100%);
+    }
+    .hero-media {
+      filter: brightness(0.62) contrast(1.08) saturate(1.1);
+    }
+    .hero-text {
+      text-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+    }
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      box-shadow: 0 20px 55px rgba(8, 17, 32, 0.3);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all 0.9s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .nav-link.active {
+      color: #2AD3E3;
+    }
+    .toast {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.3s ease;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="glass rounded-2xl px-5 py-3 flex items-center justify-between shadow-soft">
+        <a href="#top" class="flex items-center gap-3">
+          <div class="h-11 w-11 rounded-xl bg-navy-900 text-white flex items-center justify-center font-display text-sm">DAPMA</div>
+          <div>
+            <div class="font-display text-sm text-ink-900">Dharma Putra Maritim</div>
+            <div class="text-xs text-ink-500">Maritime Operations & Logistics</div>
+          </div>
+        </a>
+        <nav class="hidden lg:flex items-center gap-6 text-sm">
+          <a class="nav-link text-ink-600 hover:text-cyan-500 transition" data-nav href="#services">Layanan</a>
+          <a class="nav-link text-ink-600 hover:text-cyan-500 transition" data-nav href="#why">Keunggulan</a>
+          <a class="nav-link text-ink-600 hover:text-cyan-500 transition" data-nav href="#process">Proses</a>
+          <a class="nav-link text-ink-600 hover:text-cyan-500 transition" data-nav href="#gallery">Kapabilitas</a>
+          <a class="nav-link text-ink-600 hover:text-cyan-500 transition" data-nav href="#faq">FAQ</a>
+          <a class="nav-link text-ink-600 hover:text-cyan-500 transition" data-nav href="#contact">Kontak</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden md:inline-flex px-4 py-2 rounded-full bg-navy-900 text-white text-sm font-medium hover:bg-navy-800 transition">Minta Penawaran</a>
+          <button id="mobileToggle" class="lg:hidden h-10 w-10 rounded-xl border border-mist-200 flex items-center justify-center text-ink-700" aria-label="Buka menu">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobileMenu" class="fixed inset-0 z-40 bg-ink-900/60 opacity-0 pointer-events-none transition">
+    <div class="absolute right-0 top-0 h-full w-72 bg-white shadow-glow p-6 translate-x-full transition" id="mobilePanel">
+      <div class="flex items-center justify-between">
+        <span class="font-display text-sm text-ink-800">Menu</span>
+        <button id="mobileClose" class="h-9 w-9 rounded-full border border-mist-200 flex items-center justify-center" aria-label="Tutup menu">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flex flex-col gap-4 text-sm">
+        <a class="nav-link text-ink-700" data-nav href="#services">Layanan</a>
+        <a class="nav-link text-ink-700" data-nav href="#why">Keunggulan</a>
+        <a class="nav-link text-ink-700" data-nav href="#process">Proses</a>
+        <a class="nav-link text-ink-700" data-nav href="#gallery">Kapabilitas</a>
+        <a class="nav-link text-ink-700" data-nav href="#faq">FAQ</a>
+        <a class="nav-link text-ink-700" data-nav href="#contact">Kontak</a>
+        <a href="#contact" class="mt-3 inline-flex justify-center px-4 py-2 rounded-full bg-navy-900 text-white text-sm font-medium">Minta Penawaran</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="pt-28">
+    <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0">
+        <video id="heroVideo" class="w-full h-full object-cover hero-media" autoplay muted loop playsinline preload="metadata" poster="https://unsplash.com/photos/xRVfW8h56Gk/download?force=true&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQ0MTY0NDY4fA">
+          <source src="https://videos.pexels.com/video-files/30522941/13076307_3840_2160_60fps.mp4" type="video/mp4" />
+        </video>
+        <img id="heroFallback" src="https://unsplash.com/photos/xRVfW8h56Gk/download?force=true&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQ0MTY0NDY4fA" alt="Kapal kontainer di lautan" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700" loading="lazy" decoding="async" />
+        <div class="absolute inset-0 hero-overlay"></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6 py-16 text-white">
+        <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+          <div class="space-y-6 reveal hero-text bg-ink-900/40 rounded-3xl p-6 border border-white/10 backdrop-blur-sm">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs uppercase tracking-[0.2em]">
+              Maritime Operations & Logistics
+            </span>
+            <h1 class="font-display text-4xl lg:text-5xl leading-tight">
+              Koordinasi maritim yang presisi, transparan, dan siap mendukung ekspansi bisnis Anda.
+            </h1>
+            <p class="text-lg text-white/80">
+              DAPMA mengorkestrasi layanan maritim B2B dari pelabuhan hingga gudang. Kami fokus pada perencanaan rute, kepatuhan, dan visibilitas operasional agar tim Anda tetap selangkah di depan.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="#contact" class="px-6 py-3 rounded-full bg-cyan-500 text-ink-900 font-semibold hover:bg-cyan-400 transition">Minta Penawaran</a>
+              <a href="#services" class="px-6 py-3 rounded-full border border-white/40 text-white font-medium hover:bg-white/10 transition">Lihat Layanan</a>
+            </div>
+            <div class="flex flex-wrap gap-3 text-xs uppercase tracking-[0.18em] text-white/70">
+              <span>Safety</span>
+              <span>•</span>
+              <span>Quality</span>
+              <span>•</span>
+              <span>On-time coordination</span>
+            </div>
+          </div>
+          <div class="hero-panel rounded-3xl p-6 text-ink-900 reveal">
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="text-xs uppercase tracking-[0.2em] text-ink-500">Operations Desk</div>
+                <div class="font-display text-xl text-ink-900 mt-2">Live Coordination Board</div>
+              </div>
+              <span class="text-xs text-ink-500">Status update real-time</span>
+            </div>
+            <div class="mt-6 grid grid-cols-3 gap-3 text-xs">
+              <div class="rounded-2xl border border-mist-100 p-3 bg-white">
+                <div class="text-ink-500 uppercase tracking-[0.2em] text-[10px]">Vessel ETA</div>
+                <div class="text-ink-900 font-semibold mt-1">Aktif dipantau</div>
+              </div>
+              <div class="rounded-2xl border border-mist-100 p-3 bg-white">
+                <div class="text-ink-500 uppercase tracking-[0.2em] text-[10px]">Docs</div>
+                <div class="text-ink-900 font-semibold mt-1">Terkoordinasi</div>
+              </div>
+              <div class="rounded-2xl border border-mist-100 p-3 bg-white">
+                <div class="text-ink-500 uppercase tracking-[0.2em] text-[10px]">Exceptions</div>
+                <div class="text-ink-900 font-semibold mt-1">Ditangani</div>
+              </div>
+            </div>
+            <div class="mt-5 bg-mist-50 rounded-2xl p-4 border border-mist-100">
+              <div class="flex items-center justify-between text-xs text-ink-600">
+                <span>Route readiness</span>
+                <span>Updated setiap hari</span>
+              </div>
+              <svg viewBox="0 0 240 60" class="w-full mt-2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 48C28 36 52 40 76 30C100 20 124 22 148 18C172 14 196 18 220 8" stroke="#2AD3E3" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="mt-6 space-y-3">
+              <label class="text-sm font-semibold text-ink-700">Nomor Tracking</label>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <input type="text" placeholder="DAPMA-INV-0001" class="flex-1 rounded-2xl border border-mist-200 px-4 py-3 text-ink-900 placeholder:text-ink-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-white" />
+                <button class="px-5 py-3 rounded-2xl bg-navy-900 text-white font-semibold hover:bg-navy-800 transition">Cek</button>
+              </div>
+              <div class="text-xs text-ink-500">Contoh tampilan. Hubungi tim untuk akses dashboard.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 -mt-12 relative z-10 reveal">
+      <div class="bg-white border border-mist-100 rounded-3xl shadow-soft p-6">
+        <div class="grid md:grid-cols-4 gap-4">
+          <div class="rounded-2xl border border-mist-100 bg-gradient-to-br from-white to-mist-50 p-4 border-t-4 border-cyan-400">
+            <div class="text-xs uppercase tracking-[0.2em] text-ink-500">Visibility</div>
+            <div class="text-lg font-display text-ink-900 mt-2">Routing + status</div>
+            <div class="text-xs text-ink-500">Terintegrasi ke tim Anda</div>
+          </div>
+          <div class="rounded-2xl border border-mist-100 bg-gradient-to-br from-white to-mist-50 p-4 border-t-4 border-steel-400">
+            <div class="text-xs uppercase tracking-[0.2em] text-ink-500">Coordination</div>
+            <div class="text-lg font-display text-ink-900 mt-2">Port & vessel</div>
+            <div class="text-xs text-ink-500">Satu pintu komunikasi</div>
+          </div>
+          <div class="rounded-2xl border border-mist-100 bg-gradient-to-br from-white to-mist-50 p-4 border-t-4 border-navy-700">
+            <div class="text-xs uppercase tracking-[0.2em] text-ink-500">Compliance</div>
+            <div class="text-lg font-display text-ink-900 mt-2">Customs ready</div>
+            <div class="text-xs text-ink-500">Dokumen tertata rapi</div>
+          </div>
+          <div class="rounded-2xl border border-mist-100 bg-gradient-to-br from-white to-mist-50 p-4 border-t-4 border-cyan-500">
+            <div class="text-xs uppercase tracking-[0.2em] text-ink-500">Support</div>
+            <div class="text-lg font-display text-ink-900 mt-2">Operational desk</div>
+            <div class="text-xs text-ink-500">Respons cepat</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24">
+      <div class="reveal">
+        <div class="text-sm uppercase tracking-[0.2em] text-cyan-500">Layanan</div>
+        <div class="h-1 w-12 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full mt-3"></div>
+        <h2 class="font-display text-3xl text-ink-900 mt-4">Solusi maritim terintegrasi untuk kebutuhan B2B</h2>
+        <p class="text-ink-600 mt-3 max-w-2xl">Kami bekerja sebagai partner koordinasi, bukan sekadar vendor. Fokus pada kesiapan pelabuhan, eksekusi pengiriman, dan kontrol dokumen.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div class="bg-white border border-mist-100 rounded-3xl p-6 shadow-soft hover:shadow-glow transition reveal">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
+            <svg class="h-6 w-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 20h18M4 16l4-8h8l4 8" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Ocean Freight & Charter</h3>
+          <p class="text-sm text-ink-600 mt-2">Pengelolaan kapasitas kapal, jadwal berlayar, dan alur muat bongkar.</p>
+        </div>
+        <div class="bg-white border border-mist-100 rounded-3xl p-6 shadow-soft hover:shadow-glow transition reveal">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
+            <svg class="h-6 w-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 18h16M6 18V8h12v10M9 8l3-3 3 3" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Port Services & Agency</h3>
+          <p class="text-sm text-ink-600 mt-2">Koordinasi sandar, perizinan, dan support operasional di pelabuhan.</p>
+        </div>
+        <div class="bg-white border border-mist-100 rounded-3xl p-6 shadow-soft hover:shadow-glow transition reveal">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
+            <svg class="h-6 w-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M5 12l3-3m-3 3 3 3" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Land Transport & Intermodal</h3>
+          <p class="text-sm text-ink-600 mt-2">Pengaturan trucking & multimodal untuk koneksi pelabuhan ke hub.</p>
+        </div>
+        <div class="bg-white border border-mist-100 rounded-3xl p-6 shadow-soft hover:shadow-glow transition reveal">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
+            <svg class="h-6 w-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h10" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Customs & Documentation</h3>
+          <p class="text-sm text-ink-600 mt-2">Dokumen kepabeanan, manifest, dan kepatuhan lintas wilayah.</p>
+        </div>
+        <div class="bg-white border border-mist-100 rounded-3xl p-6 shadow-soft hover:shadow-glow transition reveal">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
+            <svg class="h-6 w-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 20V8l6-4 6 4v12" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Warehousing & Consolidation</h3>
+          <p class="text-sm text-ink-600 mt-2">Konsolidasi muatan, storage sementara, dan cross-docking.</p>
+        </div>
+        <div class="bg-white border border-mist-100 rounded-3xl p-6 shadow-soft hover:shadow-glow transition reveal">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center">
+            <svg class="h-6 w-6 text-cyan-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 18l7-6 4 4 7-8" />
+            </svg>
+          </div>
+          <h3 class="font-display text-xl mt-4">Project Cargo</h3>
+          <p class="text-sm text-ink-600 mt-2">Penanganan muatan oversize dan koordinasi peralatan khusus.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+        <div class="space-y-6 reveal">
+          <div class="text-sm uppercase tracking-[0.2em] text-cyan-500">Keunggulan</div>
+          <div class="h-1 w-12 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full mt-3"></div>
+          <h2 class="font-display text-3xl text-ink-900 mt-4">Partner operasi yang fokus pada ketepatan eksekusi</h2>
+          <p class="text-ink-600">Kami menjaga koordinasi tetap rapi, mulai dari rencana sandar hingga laporan serah-terima. Setiap keputusan didorong oleh visibilitas dan komunikasi yang konsisten.</p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="rounded-2xl border border-mist-100 bg-white p-4">
+              <div class="font-semibold text-ink-900">Single point of contact</div>
+              <p class="text-sm text-ink-600 mt-2">Satu tim yang menghubungkan vessel, port, dan darat.</p>
+            </div>
+            <div class="rounded-2xl border border-mist-100 bg-white p-4">
+              <div class="font-semibold text-ink-900">Operational visibility</div>
+              <p class="text-sm text-ink-600 mt-2">Update status terstruktur untuk tim supply chain Anda.</p>
+            </div>
+            <div class="rounded-2xl border border-mist-100 bg-white p-4">
+              <div class="font-semibold text-ink-900">Risk mitigation</div>
+              <p class="text-sm text-ink-600 mt-2">Checklist dan mitigasi untuk perubahan jadwal atau dokumen.</p>
+            </div>
+            <div class="rounded-2xl border border-mist-100 bg-white p-4">
+              <div class="font-semibold text-ink-900">Tailored execution</div>
+              <p class="text-sm text-ink-600 mt-2">Skema layanan disesuaikan per rute dan tipe muatan.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white border border-mist-100 rounded-3xl p-8 shadow-soft reveal">
+          <div class="text-xs uppercase tracking-[0.2em] text-ink-500">Operational flow</div>
+          <h3 class="font-display text-xl text-ink-900 mt-3">DAPMA coordination layer</h3>
+          <p class="text-sm text-ink-600 mt-3">Lottie indicator ini menunjukkan alur koordinasi yang bergerak dari port ke warehouse.</p>
+          <div class="mt-6 flex items-center justify-center">
+            <div id="lottieWave" class="w-48 h-48"></div>
+          </div>
+          <div class="mt-4 text-xs text-ink-500">Animasi ringan untuk menandai status monitoring.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24">
+      <div class="reveal">
+        <div class="text-sm uppercase tracking-[0.2em] text-cyan-500">Proses</div>
+        <div class="h-1 w-12 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full mt-3"></div>
+        <h2 class="font-display text-3xl text-ink-900 mt-4">Tahapan kerja yang transparan dan mudah dipantau</h2>
+      </div>
+      <div class="mt-10 grid lg:grid-cols-[0.4fr_0.6fr] gap-10">
+        <div class="reveal">
+          <div class="bg-navy-900 text-white rounded-3xl p-6 shadow-glow">
+            <div class="text-xs uppercase tracking-[0.2em] text-cyan-300">Process overview</div>
+            <div class="font-display text-2xl mt-3">DAPMA Execution Loop</div>
+            <p class="text-sm text-white/75 mt-3">Pendekatan kolaboratif untuk menjaga timeline dan kepatuhan dari awal hingga selesai.</p>
+          </div>
+        </div>
+        <div class="space-y-6 reveal">
+          <div class="relative pl-8">
+            <div class="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-cyan-400"></div>
+            <div class="absolute left-1.5 top-4 h-full w-px bg-mist-200"></div>
+            <h3 class="font-semibold text-ink-900">1. Discovery & scope</h3>
+            <p class="text-sm text-ink-600 mt-2">Memetakan kebutuhan muatan, rute, dan target jadwal.</p>
+          </div>
+          <div class="relative pl-8">
+            <div class="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-cyan-400"></div>
+            <div class="absolute left-1.5 top-4 h-full w-px bg-mist-200"></div>
+            <h3 class="font-semibold text-ink-900">2. Route & schedule planning</h3>
+            <p class="text-sm text-ink-600 mt-2">Koordinasi dengan port, carrier, dan trucking untuk kesiapan eksekusi.</p>
+          </div>
+          <div class="relative pl-8">
+            <div class="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-cyan-400"></div>
+            <div class="absolute left-1.5 top-4 h-full w-px bg-mist-200"></div>
+            <h3 class="font-semibold text-ink-900">3. Documentation & approvals</h3>
+            <p class="text-sm text-ink-600 mt-2">Pengurusan dokumen dan compliance sesuai kebutuhan rute.</p>
+          </div>
+          <div class="relative pl-8">
+            <div class="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-cyan-400"></div>
+            <div class="absolute left-1.5 top-4 h-full w-px bg-mist-200"></div>
+            <h3 class="font-semibold text-ink-900">4. Execution & monitoring</h3>
+            <p class="text-sm text-ink-600 mt-2">Monitoring jadwal dan koordinasi exceptions selama perjalanan.</p>
+          </div>
+          <div class="relative pl-8">
+            <div class="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-cyan-400"></div>
+            <h3 class="font-semibold text-ink-900">5. Handover & reporting</h3>
+            <p class="text-sm text-ink-600 mt-2">Serah-terima barang dan laporan akhir untuk tim Anda.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24">
+      <div class="reveal">
+        <div class="text-sm uppercase tracking-[0.2em] text-cyan-500">Kapabilitas</div>
+        <div class="h-1 w-12 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full mt-3"></div>
+        <h2 class="font-display text-3xl text-ink-900 mt-4">Visual operasional dan fasilitas pendukung</h2>
+        <p class="text-ink-600 mt-3 max-w-2xl">Galeri ini bersifat ilustratif untuk menggambarkan kemampuan DAPMA di lingkungan maritim dan logistik.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <figure class="group rounded-3xl overflow-hidden shadow-soft reveal">
+          <img src="https://unsplash.com/photos/g_YqO0aXZkc/download?force=true" alt="Terminal kontainer dan crane" class="w-full h-64 object-cover group-hover:scale-105 transition" loading="lazy" decoding="async" />
+          <figcaption class="bg-white p-4 text-sm text-ink-600">Terminal kontainer & crane operasi</figcaption>
+        </figure>
+        <figure class="group rounded-3xl overflow-hidden shadow-soft reveal">
+          <img src="https://unsplash.com/photos/GiUzrya4jPE/download?force=true" alt="Container yard" class="w-full h-64 object-cover group-hover:scale-105 transition" loading="lazy" decoding="async" />
+          <figcaption class="bg-white p-4 text-sm text-ink-600">Container yard dan konsolidasi</figcaption>
+        </figure>
+        <figure class="group rounded-3xl overflow-hidden shadow-soft reveal">
+          <img src="https://unsplash.com/photos/BqPB1vdg3zw/download?force=true" alt="Aerial port view" class="w-full h-64 object-cover group-hover:scale-105 transition" loading="lazy" decoding="async" />
+          <figcaption class="bg-white p-4 text-sm text-ink-600">Aerial view pelabuhan</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="faq" class="bg-mist-50 border-t border-mist-100 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">
+          <div class="reveal">
+            <div class="text-sm uppercase tracking-[0.2em] text-cyan-500">FAQ</div>
+            <div class="h-1 w-12 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full mt-3"></div>
+            <h2 class="font-display text-3xl text-ink-900 mt-4">Pertanyaan yang sering ditanyakan</h2>
+            <p class="text-ink-600 mt-3">Butuh penjelasan lebih detail? Tim kami siap diskusi sesuai kebutuhan operasional Anda.</p>
+          </div>
+          <div class="space-y-3 reveal">
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Apakah DAPMA menangani rute domestik dan regional?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Ya, tim kami menangani kebutuhan domestik dan rute regional sesuai kesiapan port.</div>
+            </button>
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Bagaimana mekanisme update status pengiriman?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Update diberikan melalui laporan berkala, call, atau kanal yang disepakati.</div>
+            </button>
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Apakah bisa mengelola project cargo?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Bisa. Kami menyesuaikan handling, perizinan, dan penjadwalan khusus.</div>
+            </button>
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Bagaimana proses koordinasi dengan port?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Kami menyiapkan jadwal sandar, dokumentasi, dan komunikasi dengan operator port.</div>
+            </button>
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Apakah tersedia layanan warehousing?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Tersedia sesuai kebutuhan konsolidasi dan transit barang.</div>
+            </button>
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Apakah DAPMA bisa integrasi dengan tim internal?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Ya, kami menyesuaikan format laporan dan komunikasi dengan sistem klien.</div>
+            </button>
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Apakah ada SLA atau kontrak jangka panjang?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Skema kerja disesuaikan berdasarkan kebutuhan dan ruang lingkup proyek.</div>
+            </button>
+            <button class="w-full text-left bg-white border border-mist-100 border-l-4 border-l-cyan-400 rounded-2xl px-5 py-4 transition hover:border-cyan-300" data-accordion>
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-ink-900">Bagaimana memulai kerja sama?</span>
+                <span class="text-ink-500">+</span>
+              </div>
+              <div class="mt-2 text-sm text-ink-600 hidden">Isi form RFQ, kami akan menyiapkan scope dan rencana awal.</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-16 scroll-mt-24">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+        <div class="space-y-6 reveal">
+          <div class="text-sm uppercase tracking-[0.2em] text-cyan-500">RFQ</div>
+          <div class="h-1 w-12 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-full mt-3"></div>
+          <h2 class="font-display text-3xl text-ink-900 mt-4">Minta penawaran untuk kebutuhan maritim Anda</h2>
+          <p class="text-ink-600">Sampaikan kebutuhan Anda. Tim kami akan menghubungi dengan rencana koordinasi dan timeline awal.</p>
+          <div class="grid gap-4">
+            <div class="rounded-2xl border border-mist-100 bg-white p-4">
+              <div class="text-sm text-ink-500">Lokasi operasional</div>
+              <div class="font-semibold text-ink-900">Surabaya (HQ) • Operasional Nusantara</div>
+            </div>
+            <div class="rounded-2xl border border-mist-100 bg-white p-4">
+              <div class="text-sm text-ink-500">Kontak</div>
+              <div class="font-semibold text-ink-900">hello@dapma.co.id • +62 31 0000 0000</div>
+            </div>
+          </div>
+        </div>
+        <form id="rfqForm" class="bg-white rounded-3xl border border-mist-100 p-6 shadow-soft reveal">
+          <div class="grid gap-4">
+            <div>
+              <label class="text-sm font-medium text-ink-700">Nama</label>
+              <input name="name" type="text" required class="mt-2 w-full rounded-2xl border border-mist-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="Nama lengkap" />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-ink-700">Perusahaan</label>
+              <input name="company" type="text" required class="mt-2 w-full rounded-2xl border border-mist-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="Nama perusahaan" />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-ink-700">Email</label>
+              <input name="email" type="email" required class="mt-2 w-full rounded-2xl border border-mist-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="nama@perusahaan.com" />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-ink-700">WhatsApp</label>
+              <input name="whatsapp" type="tel" required class="mt-2 w-full rounded-2xl border border-mist-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="+62..." />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-ink-700">Lokasi</label>
+              <input name="location" type="text" required class="mt-2 w-full rounded-2xl border border-mist-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="Kota / Pelabuhan" />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-ink-700">Jenis Layanan</label>
+              <select name="service" required class="mt-2 w-full rounded-2xl border border-mist-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                <option value="">Pilih layanan</option>
+                <option>Ocean Freight</option>
+                <option>Port Services</option>
+                <option>Project Cargo</option>
+                <option>Customs & Documentation</option>
+                <option>Warehousing</option>
+                <option>Intermodal</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm font-medium text-ink-700">Deskripsi Kebutuhan</label>
+              <textarea name="detail" rows="4" required class="mt-2 w-full rounded-2xl border border-mist-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" placeholder="Jelaskan muatan, jadwal, dan kebutuhan khusus"></textarea>
+            </div>
+            <button type="submit" class="px-6 py-3 rounded-2xl bg-navy-900 text-white font-semibold hover:bg-navy-800 transition">Kirim Permintaan</button>
+            <p class="text-xs text-ink-500">Submit hanya simulasi. Tim kami akan menghubungi Anda.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-mist-100 bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-sm text-ink-600">
+      <div>
+        <div class="font-display text-base text-ink-900">DAPMA</div>
+        <p class="mt-2">Dharma Putra Maritim. Partner koordinasi maritim dan logistik untuk kebutuhan B2B.</p>
+      </div>
+      <div>
+        <div class="font-semibold text-ink-900">Quick Links</div>
+        <div class="mt-3 grid gap-2">
+          <a href="#services" class="hover:text-cyan-500">Layanan</a>
+          <a href="#why" class="hover:text-cyan-500">Keunggulan</a>
+          <a href="#process" class="hover:text-cyan-500">Proses</a>
+          <a href="#contact" class="hover:text-cyan-500">Kontak</a>
+        </div>
+      </div>
+      <div>
+        <div class="font-semibold text-ink-900">Kontak</div>
+        <div class="mt-3 grid gap-2">
+          <span>Surabaya, Indonesia</span>
+          <span>hello@dapma.co.id</span>
+          <span>+62 31 0000 0000</span>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-mist-100 py-6 text-center text-xs text-ink-500">© 2026 DAPMA. All rights reserved.</div>
+  </footer>
+
+  <div id="toast" class="toast fixed bottom-6 right-6 bg-ink-900 text-white px-4 py-3 rounded-2xl shadow-glow text-sm">
+    Permintaan berhasil terkirim. Tim DAPMA akan menghubungi Anda.
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+  <script>
+    const navLinks = document.querySelectorAll('[data-nav]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+
+    sections.forEach((section) => observer.observe(section));
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileClose = document.getElementById('mobileClose');
+
+    const openMenu = () => {
+      mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+      mobilePanel.classList.remove('translate-x-full');
+    };
+
+    const closeMenu = () => {
+      mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+      mobilePanel.classList.add('translate-x-full');
+    };
+
+    mobileToggle.addEventListener('click', openMenu);
+    mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target === mobileMenu) closeMenu();
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    document.querySelectorAll('[data-accordion]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const content = button.querySelector('div + div');
+        const isHidden = content.classList.contains('hidden');
+        content.classList.toggle('hidden');
+        button.querySelector('span:last-child').textContent = isHidden ? '–' : '+';
+      });
+    });
+
+    const toast = document.getElementById('toast');
+    const form = document.getElementById('rfqForm');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+      form.reset();
+    });
+
+    const heroVideo = document.getElementById('heroVideo');
+    const heroFallback = document.getElementById('heroFallback');
+    if (heroVideo && heroFallback) {
+      const hideFallback = () => heroFallback.classList.add('opacity-0', 'pointer-events-none');
+      const showFallback = () => heroFallback.classList.remove('opacity-0', 'pointer-events-none');
+      heroVideo.addEventListener('canplay', hideFallback);
+      heroVideo.addEventListener('playing', hideFallback);
+      heroVideo.addEventListener('error', showFallback);
+    }
+
+    lottie.loadAnimation({
+      container: document.getElementById('lottieWave'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets2.lottiefiles.com/packages/lf20_i9mxcD.json'
+    });
+  </script>
+</body>
+</html>
