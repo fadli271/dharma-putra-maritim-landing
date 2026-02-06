@@ -151,8 +151,8 @@ const getAssetPath = (path: string) => {
                 <i class={`fa-solid ${item.icon} text-sm`}></i>
             </div>
             <span class="text-lg font-serif font-bold text-white group-hover:text-brand-gold transition-colors">
-                <span class="lang-id">{navigation[item.id].id}</span>
-                <span class="lang-en">{navigation[item.id].en}</span>
+                <span class="lang-id">{navigation[item.id as keyof typeof navigation].id}</span>
+                <span class="lang-en">{navigation[item.id as keyof typeof navigation].en}</span>
             </span>
           </a>
         ))}
