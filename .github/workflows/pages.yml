@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          clean: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -29,12 +31,16 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Build Astro
-        run: npm run build
+        run: |
+          rm -rf dist
+          npm run build
 
-      - name: List files in dist
+      - name: List build output
         run: ls -R dist/
 
       - name: Upload artifact
