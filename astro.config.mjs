@@ -5,7 +5,7 @@ const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 const repoName = "dharma-putra-maritim-landing";
 
 export default defineConfig({
-  // Base URL for your site. Using the GitHub Pages default URL for debugging.
+  // Base URL for your site. Replace 'fadli271' with your actual GitHub username if different.
   site: "https://fadli271.github.io",
 
   // Base path must match the repository name for GitHub Pages sub-directory hosting.
@@ -16,8 +16,9 @@ export default defineConfig({
   publicDir: "./public",
   outDir: "./dist",
 
-  // GitHub Pages works best with trailing slashes for directory-style routing.
-  trailingSlash: "always",
+  // Using 'ignore' for trailingSlash to prevent potential 404s on GitHub Pages
+  // while still allowing directory-style routing.
+  trailingSlash: "ignore",
 
   server: {
     port: 3000,
