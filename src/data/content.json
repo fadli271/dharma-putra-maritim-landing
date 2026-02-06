@@ -1,0 +1,139 @@
+{
+  "navigation": {
+    "home": { "id": "Beranda", "en": "Home" },
+    "about": { "id": "Tentang Kami", "en": "About Us" },
+    "services": { "id": "Layanan", "en": "Services" },
+    "contact": { "id": "Hubungi Kami", "en": "Get in Touch" }
+  },
+  "hero": {
+    "badge": { "id": "Solusi Maritim Kelas Dunia", "en": "World Class Maritime Solutions" },
+    "title_main": { "id": "Navigasi Ekselen dalam", "en": "Navigating Excellence in" },
+    "title_accent": { "id": "Logistik Maritim.", "en": "Maritime Logistics." },
+    "description": {
+      "id": "PT Dharma Putra Maritime menghadirkan layanan manajemen kapal premium, crewing, dan keagenan pelabuhan dengan komitmen teguh pada keselamatan dan integritas operasional.",
+      "en": "PT Dharma Putra Maritime delivers premium ship management, crewing, and port agency services with an unwavering commitment to safety and operational integrity."
+    },
+    "cta_primary": { "id": "Lihat Layanan", "en": "Explore Services" },
+    "cta_secondary": { "id": "Profil Perusahaan", "en": "Company Profile" }
+  },
+  "stats": [
+    { "label_id": "Kapal Dikelola", "label_en": "Vessels Managed", "value": "120", "suffix": "+", "icon": "fa-ship" },
+    { "label_id": "Kru Profesional", "label_en": "Professional Crew", "value": "4500", "suffix": "+", "icon": "fa-users" },
+    { "label_id": "Tahun Pengalaman", "label_en": "Years Experience", "value": "18", "suffix": "", "icon": "fa-award" },
+    { "label_id": "Pelabuhan Global", "label_en": "Global Ports", "value": "24", "suffix": "/7", "icon": "fa-globe" }
+  ],
+  "about": {
+    "badge": { "id": "Warisan Kepercayaan", "en": "Legacy of Trust" },
+    "title_main": { "id": "Memberdayakan Industri Maritim dengan", "en": "Empowering the Maritime Industry with" },
+    "title_accent": { "id": "Integritas.", "en": "Integrity." },
+    "quote": {
+      "id": "\"Misi kami adalah menjembatani standar global dengan keahlian lokal, memastikan keselamatan maritim di setiap mil laut.\"",
+      "en": "\"Our mission is to bridge the gap between global standards and local expertise, ensuring maritime safety at every nautical mile.\""
+    },
+    "vision_badge": { "id": "Visi Perusahaan 2025", "en": "Corporate Vision 2025" },
+    "description_1": {
+      "id": "Didirikan dengan visi untuk mendefinisikan ulang layanan maritim di Indonesia, PT Dharma Putra Maritime telah berkembang menjadi pusat keahlian teknis dan presisi logistik.",
+      "en": "Founded with a vision to redefine maritime services in Indonesia, PT Dharma Putra Maritime has grown into a powerhouse of technical expertise and logistical precision."
+    },
+    "description_2": {
+      "id": "Kami beroperasi di bawah sertifikasi internasional tertinggi, termasuk ISO 9001:2015 dan MLC 2006, memastikan setiap kapal dan kru memenuhi tuntutan pelayaran modern.",
+      "en": "We operate under the highest international certifications, including ISO 9001:2015 and MLC 2006, ensuring that every vessel we manage and every crew member we deploy meets the stringent demands of modern seafaring."
+    },
+    "features": [
+      {
+        "title_id": "Keselamatan Utama",
+        "title_en": "Safety First",
+        "desc_id": "Mindset nol-kecelakaan di semua operasional.",
+        "desc_en": "Zero-accident mindset in all operations.",
+        "icon": "fa-shield-halved"
+      },
+      {
+        "title_id": "Logistik Cerdas",
+        "title_en": "Smart Logistics",
+        "desc_id": "Pelacakan canggih dan monitoring teknis.",
+        "desc_en": "Advanced tracking and technical monitoring.",
+        "icon": "fa-microchip"
+      }
+    ]
+  },
+  "services": {
+    "badge": { "id": "Keahlian Kami", "en": "Our Expertise" },
+    "title_main": { "id": "Solusi Komprehensif untuk", "en": "Comprehensive Solutions for the" },
+    "title_accent": { "id": "Ekonomi Biru.", "en": "Blue Economy." },
+    "items": [
+      {
+        "title_id": "Pengawakan (Crewing)",
+        "title_en": "Crewing & Manning",
+        "desc_id": "Rekrutmen dan manajemen awak kapal bersertifikat STCW dengan standar seleksi ketat untuk memastikan operasional yang andal.",
+        "desc_en": "STCW certified recruitment and crew management with rigorous selection standards to ensure reliable operations.",
+        "icon": "fa-people-group",
+        "image": "https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "title_id": "Manajemen Kapal",
+        "title_en": "Ship Management",
+        "desc_id": "Solusi teknis menyeluruh mulai dari pemeliharaan rutin, pengadaan suku cadang, hingga kepatuhan regulasi maritim internasional.",
+        "desc_en": "Comprehensive technical solutions ranging from routine maintenance to international maritime regulatory compliance.",
+        "icon": "fa-anchor",
+        "image": "https://images.unsplash.com/photo-1494412574743-01927215e8b9?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "title_id": "Keagenan Pelabuhan",
+        "title_en": "Port Agency",
+        "desc_id": "Layanan keagenan pelabuhan yang efisien di seluruh wilayah Indonesia, memastikan proses clearance dan logistik berjalan lancar.",
+        "desc_en": "Efficient port agency services across Indonesia, ensuring smooth clearance and logistics processes.",
+        "icon": "fa-file-contract",
+        "image": "https://images.unsplash.com/photo-1570110374636-64696c2e3661?auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
+    "cta": { "id": "Selengkapnya", "en": "Learn More" }
+  },
+  "cta_banner": {
+    "title_main": { "id": "Siap Mengoptimalkan", "en": "Ready to Optimize Your" },
+    "title_accent": { "id": "Aset Maritim Anda?", "en": "Maritime Assets?" },
+    "description": {
+      "id": "Bergabunglah dengan jaringan pemilik kapal global yang mempercayai PT Dharma Putra Maritime untuk keandalan dan keunggulan teknis yang tak tertandingi.",
+      "en": "Join a network of global ship owners who trust PT Dharma Putra Maritime for unmatched reliability and technical excellence."
+    },
+    "btn_primary": { "id": "Konsultasi dengan Ahli", "en": "Consult with Our Experts" },
+    "btn_secondary": { "id": "Hubungi Langsung", "en": "Direct Line" }
+  },
+  "contact": {
+    "badge": { "id": "Hubungi Kami", "en": "Contact Us" },
+    "title_main": { "id": "Mari Diskusikan", "en": "Let's Discuss Your" },
+    "title_accent": { "id": "Kebutuhan Anda.", "en": "Requirements." },
+    "info": {
+      "address_label": { "id": "Kantor Pusat", "en": "Headquarters" },
+      "address": "Jl. Yos Sudarso No. 88, Jakarta Utara 14320, Indonesia",
+      "email_label": { "id": "Email Penawaran", "en": "Email Inquiry" },
+      "email": "commercial@dharmaputramaritime.co.id",
+      "phone_label": { "id": "Layanan Dukungan", "en": "Support Line" },
+      "phone": "+62-21-4567-8900"
+    },
+    "form": {
+      "name_label": { "id": "Nama Lengkap", "en": "Full Name" },
+      "email_label": { "id": "Email Kerja", "en": "Work Email" },
+      "interest_label": { "id": "Minat Layanan", "en": "Service Interest" },
+      "message_label": { "id": "Pesan", "en": "Message" },
+      "submit": { "id": "Kirim Pesan", "en": "Send Message" }
+    }
+  },
+  "footer": {
+    "tagline": {
+      "id": "Tolok ukur keunggulan maritim. Memberberikan manajemen teknis kelas dunia dan logistik kru sejak 2006.",
+      "en": "The benchmark of maritime excellence. Delivering world-class technical management and crew logistics since 2006."
+    },
+    "column_1_title": { "id": "Solusi", "en": "Solutions" },
+    "column_2_title": { "id": "Tautan Cepat", "en": "Quick Links" },
+    "newsletter_title": "Newsletter",
+    "newsletter_desc": {
+      "id": "Berlangganan untuk wawasan dan pembaruan maritim.",
+      "en": "Subscribe for maritime insights and updates."
+    },
+    "copyright": "© 2024 PT Dharma Putra Maritime. All Rights Reserved.",
+    "links": {
+      "privacy": { "id": "Kebijakan Privasi", "en": "Privacy Policy" },
+      "terms": { "id": "Syarat & Ketentuan", "en": "Terms of Service" }
+    }
+  }
+}

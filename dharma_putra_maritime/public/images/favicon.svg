@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Ocean Wave Background -->
+  <rect width="32" height="32" fill="#0a192f"/>
+
+  <!-- Anchor Symbol -->
+  <g fill="#c5a059">
+    <!-- Anchor Ring -->
+    <circle cx="16" cy="6" r="3" fill="none" stroke="#c5a059" stroke-width="2"/>
+
+    <!-- Anchor Shaft -->
+    <rect x="15" y="8" width="2" height="14"/>
+
+    <!-- Anchor Top Arms -->
+    <path d="M16 12 L10 16 M16 12 L22 16" stroke="#c5a059" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Anchor Bottom Point -->
+    <path d="M16 22 L12 28 L16 26 L20 28 Z"/>
+
+    <!-- Anchor Cross Bar -->
+    <path d="M11 16 Q16 18 21 16" fill="none" stroke="#c5a059" stroke-width="2"/>
+  </g>
+</svg>

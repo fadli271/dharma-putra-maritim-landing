@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- Background -->
+  <rect width="180" height="180" fill="#0a192f"/>
+
+  <!-- Anchor Symbol -->
+  <g transform="translate(90, 90)" fill="#c5a059">
+    <!-- Anchor Ring -->
+    <circle cx="0" cy="-45" r="12" fill="none" stroke="#c5a059" stroke-width="4"/>
+
+    <!-- Anchor Shaft -->
+    <rect x="-3" y="-30" width="6" height="45"/>
+
+    <!-- Anchor Top Arms -->
+    <line x1="0" y1="-12" x2="-25" y2="5" stroke="#c5a059" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="-12" x2="25" y2="5" stroke="#c5a059" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Anchor Bottom Point -->
+    <path d="M 0 15 L -10 35 L 0 28 L 10 35 Z"/>
+
+    <!-- Anchor Cross Bar -->
+    <path d="M -20 5 Q 0 10 20 5" fill="none" stroke="#c5a059" stroke-width="4"/>
+  </g>
+</svg>

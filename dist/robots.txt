@@ -1,0 +1,122 @@
+# ============================================
+# Robots.txt for Dharma Putra Maritime
+# Last Updated: 2024
+# ============================================
+
+# Allow all user agents
+User-agent: *
+
+# Disallow sensitive and non-public areas
+Disallow: /assets/js/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /*.zip$
+Disallow: /*.tar$
+Disallow: /*.gz$
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /temp/
+
+# Allow specific resource directories
+Allow: /assets/images/
+Allow: /assets/css/
+Allow: /public/
+Allow: *.css$
+Allow: *.js$
+Allow: *.jpg$
+Allow: *.png$
+Allow: *.svg$
+Allow: *.webp$
+Allow: *.html$
+
+# Crawl delay to prevent server overload (5 seconds)
+Crawl-delay: 5
+
+# Sitemap location
+Sitemap: https://dharmaputramaritime.co.id/sitemap.xml
+
+# ============================================
+# Block specific bad bots
+# ============================================
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: BacklinkCrawler
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+# ============================================
+# Special rules for social media crawlers
+# ============================================
+
+# Allow Facebook
+User-agent: facebookexternalhit/1.1
+Allow: /
+
+# Allow Twitter
+User-agent: Twitterbot
+Allow: /
+
+# Allow LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Allow Pinterest
+User-agent: Pinterest
+Allow: /
+
+# Allow Google
+User-agent: Googlebot
+Allow: /
+
+# ============================================
+# Rate limiting for major search engines
+# ============================================
+
+# Google: 1 request every 2 seconds
+User-agent: Googlebot
+Crawl-delay: 2
+
+# Bing: 1 request every 3 seconds
+User-agent: bingbot
+Crawl-delay: 3
+
+# Yahoo: 1 request every 3 seconds
+User-agent: Slurp
+Crawl-delay: 3
+
+# DuckDuckGo: 1 request every 3 seconds
+User-agent: DuckDuckBot
+Crawl-delay: 3
+
+# ============================================
+# SEO Best Practices
+# ============================================
+
+# Ensure sitemap is accessible
+Sitemap: https://dharmaputramaritime.co.id/sitemap.xml
+
+# End of robots.txt
