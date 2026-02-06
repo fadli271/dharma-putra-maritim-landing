@@ -16,6 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // Helper function to resolve asset paths correctly in both local and production
 const getAssetPath = (path: string) => {
+  if (path.startsWith("http")) return path;
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${base}${cleanPath}`;
 };
@@ -40,14 +41,14 @@ const getAssetPath = (path: string) => {
 
     <link rel="canonical" href="https://dharmaputramaritime.co.id/" />
     <link rel="icon" type="image/svg+xml" href={getAssetPath("favicon.svg")} />
-    <link rel="manifest" href={getAssetPath("manifest.json")} />
+    <link rel="manifest" href={getAssetPath("manifest.json") + "?v=2"} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content="https://dharmaputramaritime.co.id/" />
-    <meta property="og:image" content="https://dharmaputramaritime.co.id/assets/images/og-image.jpg" />
+    <meta property="og:image" content={getAssetPath("assets/images/og-image.jpg")} />
     <meta property="og:site_name" content="Dharma Putra Maritime" />
     <meta property="og:locale" content="id_ID" />
 
@@ -120,7 +121,7 @@ const getAssetPath = (path: string) => {
     </div>
 
     <!-- Scripts -->
-    <script is:inline src={import.meta.env.BASE_URL.replace(/\/$/, "") + "/assets/js/aos.js"}></script>
+    <script is:inline src={getAssetPath("assets/js/aos.js")}></script>
     <script is:inline>
       // Initialize AOS
       document.addEventListener('DOMContentLoaded', () => {
@@ -145,6 +146,6 @@ const getAssetPath = (path: string) => {
         });
       });
     </script>
-    <script type="module" src={import.meta.env.BASE_URL.replace(/\/$/, "") + "/assets/js/main.js"}></script>
+    <script type="module" src={getAssetPath("assets/js/main.js")}></script>
   </body>
 </html>
