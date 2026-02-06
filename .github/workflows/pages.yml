@@ -34,7 +34,7 @@ jobs:
       - name: Build Astro
         run: npm run build
 
-      - name: List build output (for debugging)
+      - name: List files in dist
         run: ls -R dist/
 
       - name: Upload artifact
