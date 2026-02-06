@@ -11,7 +11,9 @@ const {
   description = "Mitra terpercaya manajemen kapal, crewing, dan agency pelabuhan di Indonesia.",
 } = Astro.props;
 
-const basePath = Astro.site?.pathname === "/" ? "" : Astro.site?.pathname ?? "";
+// Use import.meta.env.BASE_URL which is automatically populated by Astro
+// and ensures compatibility with GitHub Pages sub-directories.
+const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -44,7 +46,7 @@ const basePath = Astro.site?.pathname === "/" ? "" : Astro.site?.pathname ?? "";
     <meta property="og:site_name" content="Dharma Putra Maritime" />
     <meta property="og:locale" content="id_ID" />
 
-    <!-- Font Awesome Official CDN (Replacing local fonts for reliability) -->
+    <!-- Font Awesome Official CDN -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -113,7 +115,7 @@ const basePath = Astro.site?.pathname === "/" ? "" : Astro.site?.pathname ?? "";
     </div>
 
     <!-- Scripts -->
-    <script is:inline src={`${basePath}/assets/js/aos.js`}></script>
+    <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/aos.js`}></script>
     <script is:inline>
       // Initialize AOS
       document.addEventListener('DOMContentLoaded', () => {
@@ -138,6 +140,6 @@ const basePath = Astro.site?.pathname === "/" ? "" : Astro.site?.pathname ?? "";
         });
       });
     </script>
-    <script type="module" src={`${basePath}/assets/js/main.js`}></script>
+    <script type="module" src={`${import.meta.env.BASE_URL}/assets/js/main.js`}></script>
   </body>
 </html>
