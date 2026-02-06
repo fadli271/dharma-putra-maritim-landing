@@ -1,15 +1,13 @@
 import { defineConfig } from "astro/config";
 
-// Detect if we are running in GitHub Actions to set the base path correctly
+// Detect if we are running in GitHub Actions for production build
 const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 const repoName = "dharma-putra-maritim-landing";
 
 export default defineConfig({
-  // If you are using a custom domain, set it here.
-  // Otherwise, use your GitHub Pages URL: https://<username>.github.io
+  // When deploying to GitHub Pages, site and base must be set.
+  // In local development, Astro handles this automatically as "/".
   site: "https://fadli271.github.io",
-
-  // Base path must match the repository name for GitHub Pages sub-directory hosting
   base: isGitHubPages ? `/${repoName}` : "/",
 
   srcDir: "./src",

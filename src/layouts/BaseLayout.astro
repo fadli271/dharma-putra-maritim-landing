@@ -11,9 +11,14 @@ const {
   description = "Mitra terpercaya manajemen kapal, crewing, dan agency pelabuhan di Indonesia.",
 } = Astro.props;
 
-// Use import.meta.env.BASE_URL which is automatically populated by Astro
-// and ensures compatibility with GitHub Pages sub-directories.
-const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+// Standardize base path: ensures it doesn't end with a slash unless it's just '/'
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+// Helper function to resolve asset paths correctly in both local and production
+const getAssetPath = (path: string) => {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${cleanPath}`;
+};
 ---
 
 <!doctype html>
@@ -34,8 +39,8 @@ const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_UR
     />
 
     <link rel="canonical" href="https://dharmaputramaritime.co.id/" />
-    <link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
-    <link rel="manifest" href={`${basePath}/manifest.json`} />
+    <link rel="icon" type="image/svg+xml" href={getAssetPath("favicon.svg")} />
+    <link rel="manifest" href={getAssetPath("manifest.json")} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -56,7 +61,7 @@ const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_UR
     />
 
     <!-- AOS from local assets -->
-    <link rel="stylesheet" href={`${basePath}/assets/css/aos.css`} />
+    <link rel="stylesheet" href={getAssetPath("assets/css/aos.css")} />
 
     <style is:global>
       :root {
@@ -115,7 +120,7 @@ const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_UR
     </div>
 
     <!-- Scripts -->
-    <script is:inline src={`${import.meta.env.BASE_URL}/assets/js/aos.js`}></script>
+    <script is:inline src={import.meta.env.BASE_URL.replace(/\/$/, "") + "/assets/js/aos.js"}></script>
     <script is:inline>
       // Initialize AOS
       document.addEventListener('DOMContentLoaded', () => {
@@ -140,6 +145,6 @@ const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_UR
         });
       });
     </script>
-    <script type="module" src={`${import.meta.env.BASE_URL}/assets/js/main.js`}></script>
+    <script type="module" src={import.meta.env.BASE_URL.replace(/\/$/, "") + "/assets/js/main.js"}></script>
   </body>
 </html>
