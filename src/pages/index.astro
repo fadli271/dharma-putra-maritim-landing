@@ -6,13 +6,6 @@ const title = "PT Dharma Putra Maritime - Global Excellence in Maritime Services
 const description = "Penyedia jasa manajemen kapal, crewing, dan agency pelabuhan terkemuka di Indonesia. Integritas, Keselamatan, dan Profesionalisme.";
 
 const { navigation, hero, stats, about, services, cta_banner, contact, footer } = content;
-
-// Helper to resolve asset paths correctly
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const getAssetPath = (path: string) => {
-  const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  return `${base}${cleanPath}`;
-};
 ---
 
 <BaseLayout {title} {description}>
@@ -21,156 +14,80 @@ const getAssetPath = (path: string) => {
     [data-lang="en"] .lang-id, [data-lang="id"] .lang-en { display: none !important; }
 
     /* Navbar Scroll Fix Styles */
-    #navbar[data-scrolled="true"] {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        height: 70px;
-    }
-    #navbar[data-scrolled="true"] .nav-link { color: #475569; }
-    #navbar[data-scrolled="true"] .nav-link:hover { color: #0a192f; }
+    #navbar[data-scrolled="true"] .nav-link { color: #475569; } /* slate-600 */
+    #navbar[data-scrolled="true"] .nav-link:hover { color: #0a192f; } /* brand-900 */
     #navbar[data-scrolled="true"] .brand-text { color: #0a192f; }
 
-    #navbar[data-scrolled="false"] {
-        background: transparent;
-        height: 80px;
-    }
-    #navbar[data-scrolled="false"] .nav-link { color: rgba(255, 255, 255, 0.9); }
-    #navbar[data-scrolled="false"] .nav-link:hover { color: #c5a059; }
+    #navbar[data-scrolled="false"] .nav-link { color: rgba(255, 255, 255, 0.8); }
+    #navbar[data-scrolled="false"] .nav-link:hover { color: #c5a059; } /* brand-gold */
     #navbar[data-scrolled="false"] .brand-text { color: #ffffff; }
-
-    @media (max-width: 1023px) {
-        #navbar {
-            height: 64px !important;
-            background: #0a192f !important;
-            backdrop-filter: blur(12px);
-        }
-        #navbar .brand-text { color: #ffffff !important; }
-    }
-
-    .shadow-premium {
-      box-shadow: 0 25px 50px -12px rgba(10, 25, 47, 0.1);
-    }
-
-    .shadow-gold-glow {
-      box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.3);
-    }
   </style>
 
   <!-- Navigation -->
   <nav
     id="navbar"
-    class="fixed w-full z-50 transition-all duration-500 flex items-center"
+    class="fixed w-full z-50 transition-all duration-500 h-24 flex items-center bg-transparent"
     data-scrolled="false"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="flex justify-between items-center gap-2">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <div class="flex justify-between items-center">
         <!-- Logo -->
-        <a href="#home" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-          <div class="relative w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
-             <div class="absolute inset-0 bg-brand-gold rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-500 opacity-20"></div>
-             <i class="fa-solid fa-anchor text-base sm:text-lg text-brand-gold z-10"></i>
+        <a href="#home" class="flex items-center gap-4 group">
+          <div class="relative w-12 h-12 flex items-center justify-center">
+             <div class="absolute inset-0 bg-brand-gold rounded-xl rotate-45 group-hover:rotate-90 transition-transform duration-500 opacity-20"></div>
+             <i class="fa-solid fa-anchor text-2xl text-brand-gold z-10"></i>
           </div>
           <div class="flex flex-col">
-            <span class="brand-text text-sm sm:text-lg font-serif font-black tracking-tight transition-colors duration-300 leading-none mb-1 uppercase">Dharma Putra</span>
-            <span class="text-[7px] sm:text-[9px] uppercase tracking-[0.3em] font-bold text-brand-gold">Maritime</span>
+            <span class="brand-text text-xl font-serif font-black tracking-tight transition-colors duration-300">DHARMA PUTRA</span>
+            <span class="text-[10px] uppercase tracking-[0.4em] font-bold text-brand-gold">Maritime</span>
           </div>
         </a>
 
         <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center gap-6">
-          <div class="flex items-center gap-6 mr-4 border-r border-white/10 pr-6">
-            <a href="#home" class="nav-link text-[10px] font-bold uppercase tracking-widest transition-all relative group py-2">
+        <div class="hidden lg:flex items-center gap-10">
+          <div class="flex items-center gap-8 mr-4 border-r border-white/10 pr-8 group-data-[scrolled=true]:border-slate-200">
+            <a href="#home" class="nav-link text-sm font-bold uppercase tracking-widest transition-all relative group py-2">
               <span class="lang-id">{navigation.home.id}</span><span class="lang-en">{navigation.home.en}</span>
               <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#about" class="nav-link text-[10px] font-bold uppercase tracking-widest transition-all relative group py-2">
+            <a href="#about" class="nav-link text-sm font-bold uppercase tracking-widest transition-all relative group py-2">
               <span class="lang-id">{navigation.about.id}</span><span class="lang-en">{navigation.about.en}</span>
               <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#services" class="nav-link text-[10px] font-bold uppercase tracking-widest transition-all relative group py-2">
+            <a href="#services" class="nav-link text-sm font-bold uppercase tracking-widest transition-all relative group py-2">
               <span class="lang-id">{navigation.services.id}</span><span class="lang-en">{navigation.services.en}</span>
               <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
             </a>
           </div>
 
           <!-- Language Switcher -->
-          <div class="flex items-center gap-1 bg-white/5 backdrop-blur-md p-1 rounded-lg border border-white/10">
-            <button onclick="setLanguage('id')" id="btn-id" class="px-2 py-1 text-[8px] font-black uppercase rounded transition-all">ID</button>
-            <button onclick="setLanguage('en')" id="btn-en" class="px-2 py-1 text-[8px] font-black uppercase rounded transition-all">EN</button>
+          <div class="flex items-center gap-2 bg-white/5 backdrop-blur-md p-1 rounded-lg border border-white/10 group-data-[scrolled=true]:bg-slate-100 group-data-[scrolled=true]:border-slate-200">
+            <button onclick="setLanguage('id')" id="btn-id" class="px-3 py-1.5 text-[10px] font-black uppercase tracking-tighter rounded transition-all">ID</button>
+            <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1.5 text-[10px] font-black uppercase tracking-tighter rounded transition-all">EN</button>
           </div>
 
           <a
             href="#contact"
-            class="bg-brand-gold hover:bg-brand-900 hover:text-white text-brand-900 px-5 py-2.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all shadow-gold-glow"
+            class="bg-brand-gold hover:bg-brand-900 hover:text-white text-brand-900 px-8 py-3 rounded-full text-sm font-black uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-gold-glow"
           >
             <span class="lang-id">{navigation.contact.id}</span><span class="lang-en">{navigation.contact.en}</span>
           </a>
         </div>
 
         <!-- Mobile Toggle -->
-        <div class="flex lg:hidden items-center gap-3">
-            <button id="mobile-lang-toggle" class="text-[8px] font-black text-white border border-white/30 px-2 py-1 rounded uppercase">
+        <div class="flex items-center gap-4 lg:hidden">
+            <button id="mobile-lang-toggle" class="text-xs font-black text-white group-data-[scrolled=true]:text-brand-900 border border-current px-2 py-1 rounded">
                 <span class="lang-id">EN</span><span class="lang-en">ID</span>
             </button>
-            <button id="mobile-menu-btn" class="text-white p-1">
-              <div class="w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
-              <div class="w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
-              <div class="w-4 h-0.5 bg-current ml-auto transition-all"></div>
+            <button id="mobile-menu-btn" class="text-white group-data-[scrolled=true]:text-brand-900 p-2">
+              <div class="w-8 h-0.5 bg-current mb-2"></div>
+              <div class="w-8 h-0.5 bg-current mb-2"></div>
+              <div class="w-5 h-0.5 bg-current ml-auto"></div>
             </button>
         </div>
       </div>
     </div>
   </nav>
-
-  <!-- Mobile Menu Overlay -->
-  <div
-    id="mobile-menu"
-    class="fixed inset-0 z-[100] bg-brand-900/98 backdrop-blur-xl transition-all duration-500 translate-x-full lg:hidden invisible opacity-0"
-  >
-    <div class="flex flex-col h-full p-8">
-      <div class="flex justify-between items-center mb-10">
-        <div class="flex items-center gap-3">
-            <i class="fa-solid fa-anchor text-xl text-brand-gold"></i>
-            <span class="text-white font-serif font-black tracking-tight text-lg uppercase">Dharma Putra</span>
-        </div>
-        <button id="close-menu-btn" class="text-white/50 hover:text-brand-gold p-2">
-            <i class="fa-solid fa-xmark text-2xl"></i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col gap-5">
-        {[
-          { id: 'home', icon: 'fa-house' },
-          { id: 'about', icon: 'fa-circle-info' },
-          { id: 'services', icon: 'fa-ship' },
-          { id: 'contact', icon: 'fa-envelope' }
-        ].map((item) => (
-          <a href={`#${item.id}`} class="mobile-nav-link flex items-center gap-4 group">
-            <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-900 transition-all">
-                <i class={`fa-solid ${item.icon} text-sm`}></i>
-            </div>
-            <span class="text-lg font-serif font-bold text-white group-hover:text-brand-gold transition-colors">
-                <span class="lang-id">{navigation[item.id as keyof typeof navigation].id}</span>
-                <span class="lang-en">{navigation[item.id as keyof typeof navigation].en}</span>
-            </span>
-          </a>
-        ))}
-      </nav>
-
-      <div class="mt-auto pt-8 border-t border-white/10 text-center">
-          <p class="text-[9px] uppercase tracking-[0.2em] text-white/30 font-bold mb-4">Select Language</p>
-          <div class="flex items-center gap-3 mb-6">
-              <button onclick="setLanguage('id')" class="flex-1 py-3 rounded-xl border border-white/10 text-white text-[9px] font-bold tracking-widest hover:bg-brand-gold hover:text-brand-900 transition-all">INDONESIA</button>
-              <button onclick="setLanguage('en')" class="flex-1 py-3 rounded-xl border border-white/10 text-white text-[9px] font-bold tracking-widest hover:bg-brand-gold hover:text-brand-900 transition-all">ENGLISH</button>
-          </div>
-          <a href="#contact" id="mobile-contact-btn" class="w-full py-4 bg-brand-gold text-brand-900 text-center font-black uppercase tracking-widest text-[10px] rounded-xl block shadow-gold-glow">
-              <span class="lang-id">{navigation.contact.id}</span>
-              <span class="lang-en">{navigation.contact.en}</span>
-          </a>
-      </div>
-    </div>
-  </div>
 
   <!-- Hero Section -->
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-brand-900">
@@ -179,37 +96,40 @@ const getAssetPath = (path: string) => {
       <img
         src="https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=1920&q=80"
         alt="Maritime Vessel"
-        class="w-full h-full object-cover opacity-60"
+        class="w-full h-full object-cover animate-ken-burns opacity-60"
+        onerror="this.src='https://images.unsplash.com/photo-1494412574743-01927215e8b9?auto=format&fit=crop&w=1920&q=80'"
       />
     </div>
 
-    <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20">
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-gold/10 blur-[120px] rounded-full animate-pulse"></div>
+
+    <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 pt-20">
       <div class="max-w-3xl">
-        <div data-aos="fade-right" class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+        <div data-aos="fade-right" class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8">
           <span class="flex h-2 w-2 rounded-full bg-brand-gold animate-ping"></span>
-          <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">
             <span class="lang-id">{hero.badge.id}</span>
             <span class="lang-en">{hero.badge.en}</span>
           </span>
         </div>
 
-        <h1 data-aos="fade-up" data-aos-delay="200" class="text-3xl sm:text-5xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-6">
+        <h1 data-aos="fade-up" data-aos-delay="200" class="text-5xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-8">
           <span class="lang-id">{hero.title_main.id} <span class="text-gradient-gold">{hero.title_accent.id}</span></span>
           <span class="lang-en">{hero.title_main.en} <span class="text-gradient-gold">{hero.title_accent.en}</span></span>
         </h1>
 
-        <p data-aos="fade-up" data-aos-delay="400" class="text-sm sm:text-lg text-slate-300 leading-relaxed mb-10 max-w-2xl">
+        <p data-aos="fade-up" data-aos-delay="400" class="text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
           <span class="lang-id">{hero.description.id}</span>
           <span class="lang-en">{hero.description.en}</span>
         </p>
 
-        <div data-aos="fade-up" data-aos-delay="600" class="flex flex-col sm:flex-row gap-4 sm:gap-6">
-          <a href="#services" class="group relative px-8 py-4 bg-brand-gold text-brand-900 text-center font-black uppercase tracking-widest text-[10px] sm:text-xs rounded-xl overflow-hidden shadow-2xl transition-all">
+        <div data-aos="fade-up" data-aos-delay="600" class="flex flex-wrap gap-6">
+          <a href="#services" class="group relative px-10 py-5 bg-brand-gold text-brand-900 font-black uppercase tracking-widest rounded-xl overflow-hidden shadow-2xl">
             <span class="relative z-10 lang-id">{hero.cta_primary.id}</span>
             <span class="relative z-10 lang-en">{hero.cta_primary.en}</span>
             <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
           </a>
-          <a href="#about" class="px-8 py-4 border border-white/20 hover:border-brand-gold text-white font-black uppercase tracking-widest text-[10px] sm:text-xs rounded-xl backdrop-blur-sm transition-all flex items-center justify-center gap-3">
+          <a href="#about" class="px-10 py-5 border border-white/20 hover:border-brand-gold text-white font-black uppercase tracking-widest rounded-xl backdrop-blur-sm transition-all flex items-center gap-3">
             <span class="lang-id">{hero.cta_secondary.id}</span><span class="lang-en">{hero.cta_secondary.en}</span>
             <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
           </a>
@@ -219,20 +139,20 @@ const getAssetPath = (path: string) => {
   </section>
 
   <!-- Stats Bar -->
-  <section class="relative z-30 -mt-10 sm:-mt-16 py-8 px-4 sm:px-6">
+  <section class="relative z-30 -mt-16 py-12 px-6">
     <div class="max-w-7xl mx-auto">
-      <div class="glass-morphism rounded-[2rem] p-6 lg:p-12 shadow-premium bg-white/90 backdrop-blur-xl grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 border border-white/20">
-        {stats.map((stat) => (
-          <div class="text-center lg:border-r last:border-0 border-slate-200" data-aos="fade-up">
+      <div class="glass-morphism rounded-3xl p-8 lg:p-12 shadow-premium grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {stats.map((stat, idx) => (
+          <div class="text-center lg:border-r last:border-0 border-slate-200" data-aos="fade-up" data-aos-delay={idx * 100}>
             <div class="flex items-center justify-center gap-3 mb-2 text-brand-gold">
-              <i class={`fa-solid ${stat.icon} text-lg`}></i>
+              <i class={`fa-solid ${stat.icon} text-xl`}></i>
             </div>
-            <div class="text-xl sm:text-4xl font-serif font-bold text-brand-900 mb-1">
-               {stat.value}{stat.suffix}
+            <div class="text-4xl font-serif font-bold text-brand-900 mb-1">
+              <span class="counter" data-target={stat.value}>0</span>{stat.suffix}
             </div>
-            <p class="text-[8px] sm:text-[10px] uppercase font-black tracking-widest text-slate-400">
-               <span class="lang-id">{stat.label_id}</span>
-               <span class="lang-en">{stat.label_en}</span>
+            <p class="text-xs uppercase tracking-widest font-bold text-slate-500">
+                <span class="lang-id">{stat.label_id}</span>
+                <span class="lang-en">{stat.label_en}</span>
             </p>
           </div>
         ))}
@@ -241,47 +161,62 @@ const getAssetPath = (path: string) => {
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-20 sm:py-32 bg-slate-50 relative overflow-hidden">
+  <section id="about" class="py-24 lg:py-32 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="relative order-2 lg:order-1" data-aos="fade-right">
-          <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-gold/5 rounded-full blur-3xl"></div>
-          <div class="relative z-10 rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-premium aspect-[4/5] sm:aspect-square lg:aspect-[4/5]">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="relative" data-aos="fade-right">
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-gold/10 rounded-full blur-3xl"></div>
+          <div class="relative rounded-3xl overflow-hidden shadow-premium">
             <img
-              src="https://images.unsplash.com/photo-1494412574743-01927215e8b9?auto=format&fit=crop&w=1200&q=80"
-              alt="Ship Management"
-              class="w-full h-full object-cover"
-              onerror="this.src='https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=1200&q=80'"
+              src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=80"
+              alt="Professional Team"
+              class="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+              onerror="this.src='https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&w=1200&q=80'"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent"></div>
-          </div>
-          <div class="absolute -bottom-6 -right-6 glass-morphism p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl z-20 hidden sm:block">
-            <div class="text-3xl sm:text-4xl font-serif font-bold text-brand-gold mb-1">15+</div>
-            <div class="text-[8px] sm:text-[10px] uppercase font-black tracking-widest text-brand-900">Years Excellence</div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-900/80 to-transparent"></div>
+            <div class="absolute bottom-10 left-10 right-10 p-8 glass-morphism rounded-2xl border-white/20">
+               <p class="text-brand-900 font-serif italic text-lg leading-relaxed">
+                 <span class="lang-id">{about.quote.id}</span>
+                 <span class="lang-en">{about.quote.en}</span>
+               </p>
+               <div class="mt-4 flex items-center gap-4">
+                 <div class="w-10 h-0.5 bg-brand-gold"></div>
+                 <span class="text-xs uppercase tracking-widest font-black text-brand-900">
+                    <span class="lang-id">{about.vision_badge.id}</span>
+                    <span class="lang-en">{about.vision_badge.en}</span>
+                 </span>
+               </div>
+            </div>
           </div>
         </div>
 
-        <div class="order-1 lg:order-2" data-aos="fade-left">
-          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-[10px] mb-4 block lang-id">{about.badge.id}</span>
-          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-[10px] mb-4 block lang-en">{about.badge.en}</span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-brand-900 leading-tight mb-6">
+        <div data-aos="fade-left">
+          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-xs mb-6 block lang-id">{about.badge.id}</span>
+          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-xs mb-6 block lang-en">{about.badge.en}</span>
+
+          <h2 class="text-4xl lg:text-5xl font-serif font-bold text-brand-900 leading-tight mb-8">
             <span class="lang-id">{about.title_main.id} <span class="text-gradient-gold">{about.title_accent.id}</span></span>
             <span class="lang-en">{about.title_main.en} <span class="text-gradient-gold">{about.title_accent.en}</span></span>
           </h2>
-          <div class="space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed mb-10">
-            <p class="lang-id">{about.description_1.id}</p><p class="lang-en">{about.description_1.en}</p>
-            <p class="lang-id">{about.description_2.id}</p><p class="lang-en">{about.description_2.en}</p>
+          <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+            <p class="lang-id">{about.description_1.id}</p>
+            <p class="lang-en">{about.description_1.en}</p>
+            <p class="lang-id">{about.description_2.id}</p>
+            <p class="lang-en">{about.description_2.en}</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {about.features.map(f => (
-              <div class="flex items-center gap-3 group">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-brand-50 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all">
-                  <i class={`fa-solid ${f.icon} text-xs sm:text-sm`}></i>
+          <div class="mt-12 grid sm:grid-cols-2 gap-8">
+            {about.features.map(feature => (
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-brand-gold">
+                  <i class={`fa-solid ${feature.icon} text-xl`}></i>
                 </div>
-                <span class="font-bold text-brand-900 text-[11px] sm:text-sm tracking-tight uppercase">
-                    <span class="lang-id">{f.title_id}</span><span class="lang-en">{f.title_en}</span>
-                </span>
+                <div>
+                  <h4 class="font-bold text-brand-900 mb-1 lang-id">{feature.title_id}</h4>
+                  <h4 class="font-bold text-brand-900 mb-1 lang-en">{feature.title_en}</h4>
+                  <p class="text-sm text-slate-500 lang-id">{feature.desc_id}</p>
+                  <p class="text-sm text-slate-500 lang-en">{feature.desc_en}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -291,36 +226,48 @@ const getAssetPath = (path: string) => {
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-20 sm:py-32 bg-brand-900 relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-gold/5 skew-x-12 translate-x-1/2"></div>
+  <section id="services" class="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-gold/5 -skew-x-12 translate-x-1/2"></div>
 
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-        <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-[10px] mb-4 block lang-id">{services.badge.id}</span>
-        <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-[10px] mb-4 block lang-en">{services.badge.en}</span>
-        <h2 class="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold text-white mb-6">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-xs mb-6 block lang-id">{services.badge.id}</span>
+        <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-xs mb-6 block lang-en">{services.badge.en}</span>
+        <h2 class="text-4xl lg:text-5xl font-serif font-bold text-brand-900 leading-tight">
           <span class="lang-id">{services.title_main.id} <span class="text-gradient-gold">{services.title_accent.id}</span></span>
           <span class="lang-en">{services.title_main.en} <span class="text-gradient-gold">{services.title_accent.en}</span></span>
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        {services.items.map((s, idx) => (
-          <div data-aos="fade-up" data-aos-delay={idx * 150} class="group relative bg-white/5 border border-white/10 p-8 sm:p-10 rounded-[2rem] hover:bg-white transition-all duration-500 flex flex-col h-full">
-            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-brand-gold flex items-center justify-center text-brand-900 mb-6 sm:mb-8 group-hover:scale-110 transition-transform">
-              <i class={`fa-solid ${s.icon} text-xl sm:text-2xl`}></i>
+      <div class="grid md:grid-cols-3 gap-8">
+        {services.items.map((service, idx) => (
+          <div
+            class="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-premium transition-all duration-500 hover:-translate-y-2"
+            data-aos="fade-up"
+            data-aos-delay={idx * 150}
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img src={service.image} alt={service.title_en} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1559297434-fae8a1916a79?auto=format&fit=crop&w=1200&q=80'" />
+              <div class="absolute inset-0 bg-brand-900/20 group-hover:bg-brand-900/40 transition-colors"></div>
+              <div class="absolute top-6 left-6 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-gold shadow-xl">
+                <i class={`fa-solid ${service.icon} text-2xl`}></i>
+              </div>
             </div>
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-white group-hover:text-brand-900 mb-4">
-                <span class="lang-id">{s.title_id}</span><span class="lang-en">{s.title_en}</span>
-            </h3>
-            <p class="text-sm sm:text-base text-slate-400 group-hover:text-slate-600 leading-relaxed mb-8 flex-grow">
-                <span class="lang-id">{s.desc_id}</span><span class="lang-en">{s.desc_en}</span>
-            </p>
-            <div class="mt-auto">
-                <a href="#contact" class="inline-flex items-center gap-2 text-brand-gold font-bold text-[10px] uppercase tracking-widest group-hover:text-brand-900 transition-colors">
-                    <span class="lang-id">{services.cta.id}</span><span class="lang-en">{services.cta.en}</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+            <div class="p-8">
+              <h3 class="text-2xl font-serif font-bold text-brand-900 mb-4 group-hover:text-brand-gold transition-colors">
+                  <span class="lang-id">{service.title_id}</span>
+                  <span class="lang-en">{service.title_en}</span>
+              </h3>
+              <p class="text-slate-500 leading-relaxed mb-8">
+                <span class="lang-id">{service.desc_id}</span>
+                <span class="lang-en">{service.desc_en}</span>
+              </p>
+              <a href="#contact" class="inline-flex items-center gap-3 font-black uppercase tracking-widest text-xs text-brand-900 group/link">
+                <span class="lang-id">{services.cta.id}</span><span class="lang-en">{services.cta.en}</span>
+                <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover/link:bg-brand-gold group-hover/link:text-white transition-all">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </a>
             </div>
           </div>
         ))}
@@ -329,85 +276,122 @@ const getAssetPath = (path: string) => {
   </section>
 
   <!-- CTA Banner -->
-  <section class="py-20 sm:py-32 relative overflow-hidden bg-brand-gold">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold text-brand-900 mb-10 leading-tight">
-          <span class="lang-id">{cta_banner.title_main.id} {cta_banner.title_accent.id}</span>
-          <span class="lang-en">{cta_banner.title_main.en} {cta_banner.title_accent.en}</span>
-        </h2>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-          <a href="#contact" class="px-8 py-4 bg-brand-900 text-white font-black uppercase tracking-widest text-[10px] sm:text-xs rounded-xl shadow-2xl hover:bg-white hover:text-brand-900 transition-all">
-            <span class="lang-id">{cta_banner.btn_primary.id}</span>
-            <span class="lang-en">{cta_banner.btn_primary.en}</span>
-          </a>
-          <a href={`tel:${contact.info.phone.replace(/[^0-9]/g, '')}`} class="px-8 py-4 border border-brand-900 text-brand-900 font-black uppercase tracking-widest text-[10px] sm:text-xs rounded-xl hover:bg-brand-900 hover:text-white transition-all">
-            <i class="fa-solid fa-phone mr-3"></i> <span class="lang-id">{cta_banner.btn_secondary.id}</span><span class="lang-en">{cta_banner.btn_secondary.en}</span>
-          </a>
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative rounded-[3rem] overflow-hidden bg-brand-900 p-12 lg:p-24 text-center">
+        <div class="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1920&q=80"
+            class="w-full h-full object-cover opacity-20"
+            alt="CTA BG"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-brand-900/80 via-brand-900 to-brand-900/80"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto" data-aos="zoom-in">
+          <h2 class="text-4xl lg:text-6xl font-serif font-bold text-white mb-8">
+            <span class="lang-id">{cta_banner.title_main.id} <span class="text-gradient-gold">{cta_banner.title_accent.id}</span></span>
+            <span class="lang-en">{cta_banner.title_main.en} <span class="text-gradient-gold">{cta_banner.title_accent.en}</span></span>
+          </h2>
+          <p class="text-xl text-slate-300 mb-12 leading-relaxed">
+            <span class="lang-id">{cta_banner.description.id}</span>
+            <span class="lang-en">{cta_banner.description.en}</span>
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a href="#contact" class="px-12 py-6 bg-brand-gold text-brand-900 font-black uppercase tracking-[0.2em] rounded-2xl shadow-2xl hover:bg-white transition-all hover:scale-105 active:scale-95">
+              <span class="lang-id">{cta_banner.btn_primary.id}</span>
+              <span class="lang-en">{cta_banner.btn_primary.en}</span>
+            </a>
+            <a href={`tel:${contact.info.phone.replace(/[^0-9]/g, '')}`} class="px-12 py-6 border border-white/20 text-white font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-white/10 transition-all">
+              <i class="fa-solid fa-phone mr-3 text-brand-gold"></i> <span class="lang-id">{cta_banner.btn_secondary.id}</span><span class="lang-en">{cta_banner.btn_secondary.en}</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact & Location -->
-  <section id="contact" class="py-20 sm:py-32 bg-white relative">
+  <section id="contact" class="py-24 bg-white relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+      <div class="grid lg:grid-cols-2 gap-20">
         <div data-aos="fade-right">
-          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-[10px] mb-4 block lang-id">{contact.badge.id}</span>
-          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-[10px] mb-4 block lang-en">{contact.badge.en}</span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-brand-900 leading-tight mb-8">
+          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-xs mb-6 block lang-id">{contact.badge.id}</span>
+          <span class="text-brand-gold font-black uppercase tracking-[0.3em] text-xs mb-6 block lang-en">{contact.badge.en}</span>
+          <h2 class="text-4xl lg:text-5xl font-serif font-bold text-brand-900 leading-tight mb-8">
             <span class="lang-id">{contact.title_main.id} <span class="text-gradient-gold">{contact.title_accent.id}</span></span>
             <span class="lang-en">{contact.title_main.en} <span class="text-gradient-gold">{contact.title_accent.en}</span></span>
           </h2>
 
-          <div class="space-y-8 mt-10">
-            <div class="flex gap-5 group">
-              <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all shadow-sm shrink-0">
-                <i class="fa-solid fa-location-dot"></i>
+          <div class="space-y-10 mt-12">
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all duration-500 shadow-sm">
+                <i class="fa-solid fa-location-dot text-xl"></i>
               </div>
               <div>
-                <h4 class="text-[9px] uppercase tracking-widest font-black text-slate-400 mb-1 lang-id">{contact.info.address_label.id}</h4>
-                <h4 class="text-[9px] uppercase tracking-widest font-black text-slate-400 mb-1 lang-en">{contact.info.address_label.en}</h4>
-                <p class="text-base sm:text-lg font-bold text-brand-900 leading-tight">{contact.info.address}</p>
+                <h4 class="text-xs uppercase tracking-widest font-black text-slate-400 mb-2 lang-id">{contact.info.address_label.id}</h4>
+                <h4 class="text-xs uppercase tracking-widest font-black text-slate-400 mb-2 lang-en">{contact.info.address_label.en}</h4>
+                <p class="text-lg font-bold text-brand-900">{contact.info.address}</p>
               </div>
             </div>
 
-            <div class="flex gap-5 group">
-              <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all shadow-sm shrink-0">
-                <i class="fa-solid fa-envelope-open-text"></i>
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all duration-500 shadow-sm">
+                <i class="fa-solid fa-envelope-open-text text-xl"></i>
               </div>
               <div>
-                <h4 class="text-[9px] uppercase tracking-widest font-black text-slate-400 mb-1 lang-id">{contact.info.email_label.id}</h4>
-                <h4 class="text-[9px] uppercase tracking-widest font-black text-slate-400 mb-1 lang-en">{contact.info.email_label.en}</h4>
-                <p class="text-base sm:text-lg font-bold text-brand-900 break-all">{contact.info.email}</p>
+                <h4 class="text-xs uppercase tracking-widest font-black text-slate-400 mb-2 lang-id">{contact.info.email_label.id}</h4>
+                <h4 class="text-xs uppercase tracking-widest font-black text-slate-400 mb-2 lang-en">{contact.info.email_label.en}</h4>
+                <p class="text-lg font-bold text-brand-900">{contact.info.email}</p>
+              </div>
+            </div>
+
+            <div class="flex gap-6 group">
+              <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-all duration-500 shadow-sm">
+                <i class="fa-solid fa-phone-volume text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-xs uppercase tracking-widest font-black text-slate-400 mb-2 lang-id">{contact.info.phone_label.id}</h4>
+                <h4 class="text-xs uppercase tracking-widest font-black text-slate-400 mb-2 lang-en">{contact.info.phone_label.en}</h4>
+                <p class="text-lg font-bold text-brand-900">{contact.info.phone}</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="relative" data-aos="fade-left">
-          <form id="contactForm" class="relative glass-morphism p-6 sm:p-10 rounded-[2rem] shadow-premium border-white/20 bg-white/50 backdrop-blur-xl border">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div class="absolute -inset-4 bg-slate-50 rounded-[2.5rem] -rotate-1"></div>
+          <form id="contactForm" class="relative glass-morphism p-10 lg:p-12 rounded-[2rem] shadow-premium border-white">
+            <div class="grid sm:grid-cols-2 gap-6 mb-6">
               <div>
-                <label class="block text-[9px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-id">{contact.form.name_label.id}</label>
-                <label class="block text-[9px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-en">{contact.form.name_label.en}</label>
-                <input type="text" required class="w-full bg-slate-50 border-0 rounded-xl px-4 py-3 text-sm text-brand-900 placeholder:text-slate-300 focus:ring-1 focus:ring-brand-gold" placeholder="Name" />
+                <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-id">{contact.form.name_label.id}</label>
+                <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-en">{contact.form.name_label.en}</label>
+                <input type="text" required class="w-full bg-slate-50 border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-brand-gold transition-all text-brand-900 placeholder:text-slate-300" placeholder="John Doe" />
               </div>
               <div>
-                <label class="block text-[9px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-id">{contact.form.email_label.id}</label>
-                <label class="block text-[9px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-en">{contact.form.email_label.en}</label>
-                <input type="email" required class="w-full bg-slate-50 border-0 rounded-xl px-4 py-3 text-sm text-brand-900 placeholder:text-slate-300 focus:ring-1 focus:ring-brand-gold" placeholder="Email" />
+                <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-id">{contact.form.email_label.id}</label>
+                <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-en">{contact.form.email_label.en}</label>
+                <input type="email" required class="w-full bg-slate-50 border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-brand-gold transition-all text-brand-900 placeholder:text-slate-300" placeholder="john@company.com" />
               </div>
             </div>
             <div class="mb-6">
-              <label class="block text-[9px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-id">{contact.form.message_label.id}</label>
-              <label class="block text-[9px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-en">{contact.form.message_label.en}</label>
-              <textarea rows="4" required class="w-full bg-slate-50 border-0 rounded-xl px-4 py-3 text-sm text-brand-900 placeholder:text-slate-300 focus:ring-1 focus:ring-brand-gold" placeholder="..."></textarea>
+              <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-id">{contact.form.interest_label.id}</label>
+              <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-en">{contact.form.interest_label.en}</label>
+              <select class="w-full bg-slate-50 border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-brand-gold transition-all text-brand-900 appearance-none">
+                {services.items.map(s => (
+                    <option value={s.title_en}>{s.title_id} / {s.title_en}</option>
+                ))}
+                <option>Others</option>
+              </select>
             </div>
-            <button type="submit" class="w-full py-4 bg-brand-900 text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-xl hover:bg-brand-gold hover:text-brand-900 transition-all shadow-lg group">
+            <div class="mb-8">
+              <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-id">{contact.form.message_label.id}</label>
+              <label class="block text-[10px] uppercase tracking-widest font-black text-slate-500 mb-2 lang-en">{contact.form.message_label.en}</label>
+              <textarea rows="4" required class="w-full bg-slate-50 border-0 rounded-xl px-5 py-4 focus:ring-2 focus:ring-brand-gold transition-all text-brand-900 placeholder:text-slate-300" placeholder="..."></textarea>
+            </div>
+            <button id="submitBtn" type="submit" class="w-full py-5 bg-brand-900 text-white font-black uppercase tracking-[0.3em] rounded-xl hover:bg-brand-gold hover:text-brand-900 transition-all duration-500 shadow-xl group">
               <span class="lang-id">{contact.form.submit.id}</span><span class="lang-en">{contact.form.submit.en}</span>
-              <i class="fa-solid fa-paper-plane ml-2 group-hover:translate-x-1 transition-transform"></i>
+              <i class="fa-solid fa-paper-plane ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
             </button>
           </form>
         </div>
@@ -416,25 +400,35 @@ const getAssetPath = (path: string) => {
   </section>
 
   <!-- Footer -->
-  <footer class="bg-brand-950 pt-20 pb-10 relative overflow-hidden">
+  <footer class="bg-brand-950 pt-24 pb-12 overflow-hidden relative">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-20"></div>
+
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-        <div class="flex flex-col items-center md:items-start text-center md:text-left">
-          <a href="#" class="flex items-center gap-3 mb-6">
-            <i class="fa-solid fa-anchor text-2xl text-brand-gold"></i>
-            <span class="text-xl font-serif font-black tracking-tight text-white uppercase">Dharma Putra</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+        <div class="lg:col-span-1">
+          <a href="#" class="flex items-center gap-4 mb-8">
+            <i class="fa-solid fa-anchor text-3xl text-brand-gold"></i>
+            <span class="text-2xl font-serif font-black tracking-tight text-white">DHARMA PUTRA</span>
           </a>
-          <p class="text-slate-500 leading-relaxed text-xs max-w-xs">
-            <span class="lang-id">{footer.tagline.id}</span><span class="lang-en">{footer.tagline.en}</span>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            <span class="lang-id">{footer.tagline.id}</span>
+            <span class="lang-en">{footer.tagline.en}</span>
           </p>
+          <div class="flex gap-4">
+            {['linkedin-in', 'instagram', 'facebook-f', 'x-twitter'].map(icon => (
+              <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:bg-brand-gold hover:text-brand-900 hover:border-brand-gold transition-all">
+                <i class={`fa-brands fa-${icon}`}></i>
+              </a>
+            ))}
+          </div>
         </div>
 
         <div>
-          <h4 class="text-white font-black uppercase tracking-widest text-[9px] mb-6 lang-id">Layanan Maritim</h4>
-          <h4 class="text-white font-black uppercase tracking-widest text-[9px] mb-6 lang-en">Maritime Services</h4>
-          <ul class="space-y-3">
+          <h4 class="text-white font-black uppercase tracking-widest text-xs mb-8 lang-id">{footer.column_1_title.id}</h4>
+          <h4 class="text-white font-black uppercase tracking-widest text-xs mb-8 lang-en">{footer.column_1_title.en}</h4>
+          <ul class="space-y-4">
             {services.items.map(s => (
-              <li><a href="#services" class="text-slate-500 hover:text-brand-gold transition-colors text-[10px] font-bold uppercase tracking-widest block">
+              <li><a href="#services" class="text-slate-400 hover:text-brand-gold transition-colors text-sm font-medium">
                   <span class="lang-id">{s.title_id}</span><span class="lang-en">{s.title_en}</span>
               </a></li>
             ))}
@@ -442,31 +436,36 @@ const getAssetPath = (path: string) => {
         </div>
 
         <div>
-          <h4 class="text-white font-black uppercase tracking-widest text-[9px] mb-6 lang-id">Navigasi</h4>
-          <h4 class="text-white font-black uppercase tracking-widest text-[9px] mb-6 lang-en">Navigation</h4>
-          <ul class="space-y-3">
-            <li><a href="#home" class="text-slate-500 hover:text-brand-gold transition-colors text-[10px] font-bold uppercase tracking-widest block"><span class="lang-id">Beranda</span><span class="lang-en">Home</span></a></li>
-            <li><a href="#about" class="text-slate-500 hover:text-brand-gold transition-colors text-[10px] font-bold uppercase tracking-widest block"><span class="lang-id">Tentang Kami</span><span class="lang-en">About Us</span></a></li>
-            <li><a href="#contact" class="text-slate-500 hover:text-brand-gold transition-colors text-[10px] font-bold uppercase tracking-widest block"><span class="lang-id">Hubungi Kami</span><span class="lang-en">Contact</span></a></li>
+          <h4 class="text-white font-black uppercase tracking-widest text-xs mb-8 lang-id">{footer.column_2_title.id}</h4>
+          <h4 class="text-white font-black uppercase tracking-widest text-xs mb-8 lang-en">{footer.column_2_title.en}</h4>
+          <ul class="space-y-4">
+            <li><a href="#home" class="text-slate-400 hover:text-brand-gold transition-colors text-sm font-medium"><span class="lang-id">Beranda</span><span class="lang-en">Home</span></a></li>
+            <li><a href="#about" class="text-slate-400 hover:text-brand-gold transition-colors text-sm font-medium"><span class="lang-id">Tentang</span><span class="lang-en">About</span></a></li>
+            <li><a href="#contact" class="text-slate-400 hover:text-brand-gold transition-colors text-sm font-medium"><span class="lang-id">Kontak</span><span class="lang-en">Contact</span></a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-white font-black uppercase tracking-widest text-[9px] mb-6">Connect</h4>
-          <div class="relative mb-6">
-            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-[10px] outline-none focus:ring-1 focus:ring-brand-gold" />
-            <button class="absolute right-2 top-2 bottom-2 bg-brand-gold text-brand-900 px-3 rounded-lg"><i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-          </div>
-          <div class="flex gap-4 justify-center md:justify-start">
-            {['linkedin-in', 'instagram', 'facebook-f'].map(icon => (
-              <a href="#" class="text-slate-600 hover:text-brand-gold transition-colors"><i class={`fa-brands fa-${icon}`}></i></a>
-            ))}
+          <h4 class="text-white font-black uppercase tracking-widest text-xs mb-8">{footer.newsletter_title}</h4>
+          <p class="text-slate-400 text-sm mb-6 lang-id">{footer.newsletter_desc.id}</p>
+          <p class="text-slate-400 text-sm mb-6 lang-en">{footer.newsletter_desc.en}</p>
+          <div class="relative">
+            <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white text-sm focus:ring-1 focus:ring-brand-gold outline-none" />
+            <button class="absolute right-2 top-2 bottom-2 bg-brand-gold text-brand-900 px-4 rounded-lg">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="pt-10 border-t border-white/5 text-center text-[9px] font-bold uppercase tracking-[0.3em] text-slate-600">
+      <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-bold uppercase tracking-widest text-slate-500">
         <p>{footer.copyright}</p>
+        <div class="flex gap-8">
+          <a href="#" class="hover:text-white transition-colors lang-id">{footer.links.privacy.id}</a>
+          <a href="#" class="hover:text-white transition-colors lang-en">{footer.links.privacy.en}</a>
+          <a href="#" class="hover:text-white transition-colors lang-id">{footer.links.terms.id}</a>
+          <a href="#" class="hover:text-white transition-colors lang-en">{footer.links.terms.en}</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -475,13 +474,16 @@ const getAssetPath = (path: string) => {
   <a
     href={`https://wa.me/${contact.info.phone.replace(/[^0-9]/g, '')}`}
     target="_blank"
-    class="fixed bottom-6 right-6 z-[60] w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all"
+    class="fixed bottom-8 right-8 z-[60] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all group"
   >
     <i class="fa-brands fa-whatsapp"></i>
+    <span class="absolute right-full mr-4 bg-white text-brand-900 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-xl">
+      <span class="lang-id">Hubungi Kami</span><span class="lang-en">Chat with Us</span>
+    </span>
   </a>
 
   <script is:inline>
-    // Language Management
+    // Language Management Logic
     function setLanguage(lang) {
         document.documentElement.setAttribute('data-lang', lang);
         localStorage.setItem('preferred-lang', lang);
@@ -491,7 +493,9 @@ const getAssetPath = (path: string) => {
     function updateLanguageUI(lang) {
         const btnId = document.getElementById('btn-id');
         const btnEn = document.getElementById('btn-en');
+
         if (!btnId || !btnEn) return;
+
         if (lang === 'id') {
             btnId.classList.add('bg-brand-gold', 'text-brand-900');
             btnEn.classList.remove('bg-brand-gold', 'text-brand-900');
@@ -503,7 +507,7 @@ const getAssetPath = (path: string) => {
         }
     }
 
-    // Initialize
+    // Initialize Language
     const savedLang = localStorage.getItem('preferred-lang') || 'id';
     setLanguage(savedLang);
 
@@ -513,38 +517,29 @@ const getAssetPath = (path: string) => {
         setLanguage(current === 'id' ? 'en' : 'id');
     });
 
-    // Scroll Effect
+    // Premium Navbar Scroll Effect
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 100) {
+        nav.classList.add('glass-morphism', 'h-20', 'shadow-premium');
+        nav.classList.remove('bg-transparent', 'h-24');
         nav.setAttribute('data-scrolled', 'true');
+        nav.dataset.scrolled = 'true';
       } else {
+        nav.classList.remove('glass-morphism', 'h-20', 'shadow-premium');
+        nav.classList.add('bg-transparent', 'h-24');
         nav.setAttribute('data-scrolled', 'false');
+        nav.dataset.scrolled = 'false';
       }
     });
 
-    // Mobile Menu
+    // Mobile Menu Toggle
     const mobileBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('close-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const mobileContactBtn = document.getElementById('mobile-contact-btn');
-
-    function toggleMenu(show) {
-      if (!mobileMenu) return;
-      if (show) {
-        mobileMenu.classList.remove('translate-x-full', 'invisible', 'opacity-0');
-        document.body.style.overflow = 'hidden';
-      } else {
-        mobileMenu.classList.add('translate-x-full', 'invisible', 'opacity-0');
-        document.body.style.overflow = '';
+    mobileBtn?.addEventListener('click', () => {
+      const menu = document.getElementById('mobile-menu');
+      if (menu) {
+        menu.classList.toggle('translate-x-full');
       }
-    }
-
-    mobileBtn?.addEventListener('click', () => toggleMenu(true));
-    closeBtn?.addEventListener('click', () => toggleMenu(false));
-    mobileContactBtn?.addEventListener('click', () => toggleMenu(false));
-    mobileNavLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggleMenu(false); });
+    });
   </script>
 </BaseLayout>
